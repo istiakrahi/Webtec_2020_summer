@@ -1,0 +1,163 @@
+<html>
+<head>
+	<title>Personal Profile</title>
+	<tr><td><h1>Personal Information</h1></td></tr>
+</head>
+	        
+<body>
+
+	<!-- <form action= "script.js" onsubmit="return f1()"> -->
+
+<table border="1">
+		<tr>
+			<td>
+				
+				Name
+			</td>
+			<td><form>
+					<input type="text" id="name" name="name" onkeyup="namevalidation()"><br>
+					
+				</form></td>
+		</tr>
+
+		<tr>
+			<td>
+				email
+			</td>
+			<td>
+			<form>
+				<input type="text" id="email" name="email" onkeyup="emailvalidation()"><br>
+					
+			</form>
+		</td>
+		</tr>
+	
+
+		<tr>
+			<td>
+				Gender
+			</td>
+			<td>
+			<form>
+				Male<input type="radio" name="Gender" onkeyup="gendervalidation()">
+				Female<input type="radio" name="Gender" onkeyup="gendervalidation()">
+				Others<input type="radio" name="Gender" onkeyup="gendervalidation()">
+			</form>
+		</td>
+		</tr>
+		
+
+
+
+		<tr>
+			<td>
+				DOB
+			</td>
+			<td>
+			<form>
+				<input type="date" name=""><br>	
+			</form>
+		</td>
+		</tr>
+
+
+
+
+		<tr>
+			<td>
+			Blood Group:
+		    </td>
+		    <td>
+			<select>
+				<option>A+</option>
+				<option>A-</option>
+			</select>
+		</td>
+
+		</tr>
+
+		<tr>
+			<td>
+				Degree:
+			</td>
+			<td>
+				<input type="checkbox" name="">SSC
+				<input type="checkbox" name="">HSC
+				<input type="checkbox" name="">BSc.
+				<input type="checkbox" name="">MSc.
+			</td>
+		</tr>
+
+		<tr>
+				<td>image</td>
+				<td>
+				<button type="button">click
+					
+				</button>	
+				</td>
+		</tr>
+	<!-- 	<tr>
+			<td>
+				Options
+			</td>
+
+			<td><input type="submit" name="submit" value="Submit">
+			</td>
+
+			<td>
+			
+				<input type="submit" name="submit" value="Reset" >
+			</td>
+		
+		</tr> -->
+
+		<tr>
+			<td colspan="3" align="right">
+				<button type="button" onclick="validate()">Submit</button>
+				<button type="reset">Reset</button>
+			</td>
+		</tr>
+
+</table>
+</form>
+<script >
+	
+	function namevalidation()
+	{
+		var name = document.getElementById("name").value;
+		if (name =='') 
+		{
+			alert("empty username");
+		}
+	}
+	function emailvalidation()
+	{
+		var email = document.getElementById("email").value;
+		if (email=='') 
+		{
+			alert("empty mailaddress");
+		}
+
+	// function datevalidation()
+	// {
+	// 	var day = docu
+	// }
+		
+		
+	
+	function validate()
+	{
+		namevalidation();
+		emailvalidation();
+
+		var names = document.getElementById("name");
+		console.log(names);
+
+		var emailid = document.getElementById("email");
+		console.log(emailid);
+	}
+
+</script>
+
+</body>
+</html>
