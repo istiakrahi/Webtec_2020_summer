@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+	<form>
+	<fieldset>
+    <legend><b>REGISTRATION</b></legend>
+	
+		<br/>
+		<table >
+			<tr>
+				<td>Id</td>
+				<td>:</td>
+				<td><input name="id" type="text" id="uid"></td>
+				<td></td>
+			</tr>		
+			<tr><td ></td></tr>
+			<tr>
+				<td>Password</td>
+				<td>:</td>
+				<td>
+					<input name="password" type="password" id="upass">
+					
+				</td>
+				<td></td>
+			</tr>		
+			<tr><td></td></tr>
+			<tr>
+				<td>Confirm Password</td>
+				<td>:</td>
+				<td><input name="confirmpassword" type="password" id="ucpass"></td>
+				<td></td>
+			</tr>		
+			<tr><td ></td></tr>
+			<tr> <td></td>
+				<td></td>
+			</tr>		
+			<tr><td></td></tr>
+			<tr>
+				<td>Email</td>
+				<td>:</td>
+				<td><input name="email" type="text" id="umail"></td>
+				<td></td>
+			</tr>		
+			<tr><td></td></tr>
+			<!-- <tr>
+				<td colspan="3">User Type: [User/Admin]
+				<select name="usertype">
+					<option value="user">User</option>
+					<option value="admin">Admin</option>
+				</select>
+
+				</td>
+				<td></td>
+			</tr> -->		
+    </table>
+		
+	<table>
+		<input type="button" value="Submit" name="submit" onclick="reg()"> 
+		<td id="loglink"><a href="login.html">Login</a></td>
+	</table>
+		
+	
+</fieldset>
+
+</form>
+
+<div id="data"></div>
+
+<script type="text/javascript">
+	
+	document.getElementById('loglink').style.display = "none";
+
+	function reg()
+	{
+		var i = document.getElementById('uid').value;
+		var p = document.getElementById('upass').value;
+		var cp = document.getElementById('ucpass').value;
+		var e = document.getElementById('umail').value;
+
+
+		var xhttp = new XMLHttpRequest();
+		xhttp.open("POST","regcheck.php",true);
+		xhttp.setRequestHeader('content-type','application/x-www-form-urlencoded');
+		xhttp.send("id="+i+&"password="+p+&"confirmpassword="+cp+&"email="+e);
+
+		xhttp.onreaystatechange = function()
+		{
+			document.getElementById('data').innerHTML = this.statusText;
+			xhttp.onreaystatechange =function()
+			{
+				if (this.readyState == 4 && this.status == 200) 
+				{
+					document.getElementById('loglink').style.display = 'block';
+					document.getElementById('data').innerHTML = this.responseText;
+				}
+			}
+		}
+	}
+
+
+</script>
+
+
+</body>
+</html>
